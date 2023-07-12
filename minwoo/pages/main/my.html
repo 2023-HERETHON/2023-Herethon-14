@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인페이지-MY</title>
+  </head>
+
+  <style>
+    #container {
+      position: absolute;
+      width: 550px;
+      height: 1100px;
+      background: #e6e2dd;
+
+      margin-left: 40%;
+    }
+    #top-box {
+      position: absolute;
+      width: 550px;
+      height: 290px;
+      border-radius: 0px 0px 40px 40px;
+      background: #79b4bd;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    #service-name {
+      width: 280px;
+      height: 85px;
+      flex-shrink: 0;
+
+      margin-left: 140px;
+      margin-top: 20px;
+
+      background: #fff;
+
+      background: #fff;
+      filter: blur(3.5px);
+    }
+    /* 고침 */
+    #search {
+      position: relative;
+      width: 440px;
+      height: 55px;
+
+      margin-left: 55px;
+      margin-top: 20px;
+
+      border: none;
+      border-radius: 15px;
+      background: #fff;
+
+      color: #b2b2b2;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    /* 추가 */
+    #img-box {
+      position: relative;
+      margin-left: 455px;
+      margin-top: -46px;
+    }
+
+    #btn-box {
+      width: 500px;
+      height: 64px;
+
+      margin-top: 20px;
+      margin-left: 30px;
+    }
+
+    #my-btn {
+      width: 100px;
+      height: 47px;
+
+      margin: 10px;
+
+      border: none;
+      border-radius: 23px;
+      background: rgba(178, 205, 209, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #fff;
+      text-align: center;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .else-btn {
+      width: 100px;
+      height: 47px;
+      flex-shrink: 0;
+
+      margin: 10px;
+
+      border: none;
+      border-radius: 23px;
+      background: #fff;
+
+      color: #000;
+      text-align: center;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #temp-contain {
+      overflow-y: scroll;
+      display: flex;
+
+      -ms-overflow-style: none; /* 인터넷 익스플로러 */
+      scrollbar-width: none; /* 파이어폭스 */
+      /* 고친부분 */
+      width: 490px;
+      height: 450px;
+
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      padding: 10px;
+      margin-top: 320px;
+      margin-left: 10px;
+    }
+
+    #temp-contain::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera 등 웹킷 기반 브라우저 */
+    }
+
+    .box {
+      position: relative;
+      width: 210px;
+      height: 160px;
+
+      margin-left: 20px;
+      margin-bottom: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+      background: rgba(178, 205, 209, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .title {
+      color: #000;
+
+      text-align: center;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    .temp-edit-img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      margin-bottom: 8px;
+      margin-right: 8px;
+    }
+
+    #add-img {
+      margin-top: 50px;
+      margin-left: 250px;
+    }
+  </style>
+
+  <body>
+    <div id="container">
+      <div id="top-box">
+        <div id="service-name"></div>
+        <!-- 검색어 기능이 있는 박스 -->
+        <div id="search-box">
+          <input id="search" type="title" placeholder="템플릿을 검색하세요" />
+          <div id="img-box">
+            <img
+              id="search-img "
+              src="/minwoo/img/gg_search.png"
+              style="width: 35px; height: 35px"
+            />
+          </div>
+        </div>
+
+        <div id="btn-box">
+          <button
+            class="else-btn"
+            id="school-btn"
+            onclick="goOtherPage('school-btn')"
+          >
+            학교
+          </button>
+          <button
+            class="else-btn"
+            id="dong-btn"
+            onclick="goOtherPage('dong-btn')"
+          >
+            동아리
+          </button>
+          <button
+            class="else-btn"
+            id="basic-btn"
+            onclick="goOtherPage('basic-btn')"
+          >
+            기본
+          </button>
+          <button id="my-btn" onclick="goOtherPage('my-btn')">MY</button>
+        </div>
+      </div>
+      <!-- 여기안에 템플릿들 box,title생성 -->
+      <div id="temp-contain"></div>
+      <!-- 추가 버튼 -->
+      <div>
+        <img
+          id="add-img"
+          src="/minwoo/img/icons8_plus.png"
+          style="width: 55px; height: 55px"
+        />
+      </div>
+    </div>
+    <!-- 바꾸기 <script src="/minwoo/js/이부분/main어쩌구.js"></script> -->
+    <script src="/minwoo/js/my/myMain.js"></script>
+  </body>
+</html>

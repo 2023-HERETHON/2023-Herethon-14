@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>템플릿 추가하기_my</title>
+  </head>
+
+  <style>
+    .main-text {
+      margin-top: 39px;
+      margin-bottom: 10px;
+      position: relative;
+      color: #000;
+      font-family: Inter;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 20px;
+    }
+
+    #container {
+      position: absolute;
+      width: 550px;
+      height: 1100px;
+      background: #e6e2dd;
+
+      margin-left: 40%;
+    }
+
+    #img-box {
+      margin-top: 25px;
+      margin-left: 20px;
+    }
+
+    #write-title {
+      width: 480px;
+      height: 48px;
+
+      border-radius: 10px;
+      background: #faf8f8;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      border: none;
+
+      margin-left: 35px;
+      margin-top: 15px;
+
+      color: #aea7a7;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    #blue-box {
+      width: 480px;
+      height: 620px;
+
+      border-radius: 10px;
+      background: #c6d5d5;
+      box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.25);
+
+      padding: 5px;
+      margin-top: 30px;
+      margin-left: 30px;
+    }
+
+    .white {
+      overflow-y: auto;
+      display: inline;
+      padding: 8px;
+
+      margin-top: -40px;
+      margin-left: 130px;
+
+      border: none;
+      border-radius: 15px;
+      background: #fcf3f3;
+      resize: none;
+
+      color: #776b6b;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    #greeting {
+      width: 320px;
+      height: 40px;
+    }
+
+    #business {
+      width: 320px;
+      height: 55px;
+    }
+
+    #content-area {
+      width: 320px;
+      height: 160px;
+    }
+
+    #end {
+      width: 320px;
+      height: 55px;
+    }
+    #add-btn {
+      width: 155px;
+      height: 60px;
+
+      border-radius: 16px;
+      background: #7ab5be;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      border: none;
+
+      color: #fff;
+      font-family: Inter;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      margin-left: 200px;
+      margin-top: 50px;
+    }
+  </style>
+
+  <body>
+    <div id="container">
+      <!-- 메인으로 가는 화살표 -->
+      <div id="img-box">
+        <img
+          src="/minwoo/img/left.png"
+          id="arrow"
+          style="width: 45px; height: 45px"
+        />
+      </div>
+      <!-- 템플릿 제목 입력 -->
+      <div>
+        <input
+          type="text"
+          id="write-title"
+          placeholder=" 템플릿 제목을 입력해주세요."
+        />
+      </div>
+      <!-- 파란 박스와 요소들 -->
+      <div id="blue-box">
+        <div>
+          <p class="main-text" style="margin-left: 30px">인사말 :</p>
+          <textarea class="white" type="text" id="greeting"></textarea>
+        </div>
+        <div>
+          <p class="main-text" style="margin-left: 52px">용건 :</p>
+          <textarea class="white" type="text" id="business"></textarea>
+        </div>
+        <div>
+          <p class="main-text" style="margin-left: 52px">내용 :</p>
+          <textarea class="white" type="text" id="content-area"></textarea>
+        </div>
+        <div>
+          <p class="main-text" style="margin-left: 28px">끝인사 :</p>
+          <textarea class="white" type="text" id="end"></textarea>
+        </div>
+      </div>
+      <!-- 추가하기 버튼 구역 -->
+      <div>
+        <button id="add-btn">추가하기</button>
+      </div>
+    </div>
+    <!-- 이부분도 -->
+    <script src="/minwoo/js/my/addTemp.js"></script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    #container {
+      position: absolute;
+      width: 550px;
+      height: 1120px;
+      background: #e6e2dd;
+
+      margin-left: 40%;
+    }
+
+    #img-box {
+      margin-top: 25px;
+      margin-left: 20px;
+    }
+    #title {
+      width: 480px;
+      height: 40px;
+
+      margin-left: 35px;
+      padding-top: 8px;
+
+      border-radius: 10px;
+      background: #faf8f8;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #000;
+      text-align: center;
+      font-family: Inter;
+      font-size: 23px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    #blue-box {
+      width: 490px;
+      height: 400px;
+      margin-left: 30px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      background: rgba(178, 205, 209, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      overflow: scroll;
+    }
+
+    #blue-box::-webkit-scrollbar {
+      display: none; /* 스크롤바 숨김 처리 */
+    }
+
+    .contents {
+      width: fit-content;
+      max-height: 300px; /* 최대 높이 설정 */
+      overflow-y: auto;
+      white-space: pre-wrap;
+
+      padding: 3px;
+      margin-left: 18px;
+      margin-right: 18px;
+      margin-top: 8px;
+
+      border: 1px solid #79b4bd;
+      background: #fff;
+
+      color: #000;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    #white-box {
+      width: 480px;
+      height: 400px;
+
+      padding: 8px;
+
+      margin-left: 25px;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #000;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+
+      resize: none;
+      overflow: hidden;
+    }
+    #copy-btn {
+      width: 120px;
+      height: 40px;
+
+      border: none;
+      border-radius: 16px;
+      background: #7ab5be;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #fff;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      margin-left: 390px;
+      margin-top: 30px;
+    }
+  </style>
+
+  <body>
+    <div id="container">
+      <div id="img-box">
+        <img
+          src="/minwoo/img/left.png"
+          id="arrow"
+          style="width: 45px; height: 45px"
+        />
+
+        <img
+          id="trash-img"
+          src="/minwoo/img/ph_trash-bold (1).png"
+          style="width: 45px; height: 45px; margin-left: 400px"
+          alt="쓰레기통"
+        />
+      </div>
+      <div id="title"></div>
+      <div id="blue-box">
+        <div class="contents" id="greet" onclick="goWhite('greet')"></div>
+        <div class="contents" id="bus" onclick="goWhite('bus')"></div>
+        <div class="contents" id="content" onclick="goWhite('content')"></div>
+        <div class="contents" id="end" onclick="goWhite('end')"></div>
+      </div>
+      <textarea id="white-box"></textarea>
+      <div>
+        <button id="copy-btn">복사하기</button>
+      </div>
+    </div>
+    <!-- 이부분 js/해당부분/writeMail로 -->
+    <script src="/minwoo/js/my/writeMail.js"></script>
+  </body>
+</html>
