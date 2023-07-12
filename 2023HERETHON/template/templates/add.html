@@ -1,0 +1,11 @@
+
+<form action="{% url 'template:add' cate %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    title: <input type="text" name="title"></p>
+    greet : <textarea name="greet"></textarea>
+    intro : <textarea name="intro"></textarea>
+    content : <textarea name="content"></textarea>
+    bye : <textarea name="bye"></textarea>
+    <button type="submit">제출</button>
+    
+</form>

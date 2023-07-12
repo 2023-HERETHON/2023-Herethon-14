@@ -1,0 +1,5 @@
+{% for temp in temps %}                
+            <li><a href="{% url 'template:mail' temp.id %}">{{temp.title}}</a></li> 
+            <a href="{% url 'template:updatePage' temp.id %}">수정</a>
+            <br>
+{% endfor %}

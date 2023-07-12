@@ -1,0 +1,26 @@
+
+<a href="{% url 'template:main' cate=1 %}">학교</a>
+<a href="{% url 'template:main' cate=2 %}">동아리</a>
+<a href="{% url 'template:main' cate=3 %}">기본</a>
+<a href="{% url 'template:main' cate=4 %}">my</a>
+
+
+<br>
+
+{% for temp in temps %}                
+            <li><a href="{% url 'template:mail' temp.id %}">{{temp.title}}</a></li> 
+            <a href="{% url 'template:updatePage' temp.id %}">수정</a>
+            <br>
+{% endfor %}
+
+
+<br><br>
+<a href="{% url 'template:addPage' cate %}">추가</a>
+
+<br><br>
+
+검색
+<form method="GET" action="{% url 'template:search' %}">
+    <input name="search" type="text" placeholder="검색어 입력" aria-label="Search">
+    <button type="submit">Search</button>
+  </form>

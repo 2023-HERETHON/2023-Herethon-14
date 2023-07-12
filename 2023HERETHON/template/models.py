@@ -11,11 +11,11 @@ class Template(models.Model):
 
     id = models.AutoField(primary_key=True)
     cate = models.IntegerField(choices=Cate.choices)
-    title = models.TextField()
-    greet = models.TextField()
-    intro = models.TextField()
-    content = models.TextField()
-    bye = models.TextField()
+    title = models.TextField(blank=True)
+    greet = models.TextField(blank=True)
+    intro = models.TextField(blank=True)
+    content = models.TextField(blank=True)
+    bye = models.TextField(blank=True)
 
     def __str__(self):
         return "{}:{}-{}".format(self.cate,self.id,self.title)
