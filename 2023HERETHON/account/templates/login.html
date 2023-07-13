@@ -1,14 +1,179 @@
-<body>
-    <form action="{% url 'account:login' %}" method="POST">
-        {% csrf_token %}
-        <br>
-        <input type="text" name="username" value="" placeholder="아이디를 입력하세요">
-        <br>
-        <br>
-        <input type="password" name="password" value="" placeholder="비밀번호를 입력하세요">
-        <br>
-        <br>
-        <input type="submit" type="submit" value="로그인">
-    </form>
-    <a href="{% url 'account:signup' %}" method="POST">회원가입 하기</a>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+
+  <style>
+    body {
+      /*전체 body 태그*/
+      font-family: "Noto Sans KR", sans-serif;
+      align-items: center;
+    }
+
+    .login-form {
+      /*전체 화면을 포함하는 section 박스*/
+      align-items: center;
+      position: absolute;
+      width: 550px;
+      height: 1100px;
+      background: #e6e2dd;
+      margin-left: 40%;
+    }
+
+    #content {
+      /*로그인 템플릿을 포함하는 div 태그*/
+      margin-top: 200px;
+    }
+
+    .login-form h1 {
+      /*안녕하세요, 서비스명입니다-문구*/
+      margin-left: 50px;
+      margin-top: 40px;
+      font-size: 45px;
+      text-align: left;
+      line-height: 120%;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 6px gray;
+    }
+
+    .login-form p {
+      /*원활한 서비스 이용을 위해 로그인해주세요-문구*/
+      margin-left: 50px;
+      font-weight: bold;
+      font-size: 20px;
+      text-align: left;
+      margin-bottom: 100px;
+    }
+
+    .int-area {
+      /*아이디 및 비밀번호 입력을 포함하는 div태그 */
+      width: 400px;
+      position: relative;
+      margin-top: 20px;
+      margin-left: 60px;
+    }
+
+    .int-area input {
+      /*아이디 및 비밀번호 입력칸 input*/
+      width: 80%;
+      padding: 30px 40px 30px;
+      background-color: transparent;
+      border: none;
+      background-color: #ffffff;
+      border-radius: 40px;
+      font-size: 30px;
+      outline: none;
+    }
+
+    .int-area label {
+      /*아이디 및 비밀번호 입력에 연결된 텍스트 라벨*/
+      position: absolute;
+      left: 30px;
+      top: 25px;
+      font-size: 25px;
+      transition: top 0.5s ease;
+      color: #b2b2b2;
+      background-color: #ffffff;
+    }
+
+    .int-area input:focus + label,
+    .int-area input:valid + label {
+      /*아이디 및 비밀번호 입력칸에 클릭하면 위쪽으로 이동하는 라벨 (구글링 참조하다가 괜찮아서 빼지 않았습니다)*/
+      top: -2px;
+      font-size: 13px;
+      color: #79b4bd;
+    }
+
+    .btn-area {
+      /*로그인 버튼을 포함하는 div 태그*/
+      margin-top: 30px;
+      margin-left: 50px;
+    }
+
+    .btn-area button {
+      /*로그인 버튼*/
+      width: 80%;
+      height: 80px;
+      font-weight: bold;
+      margin: 0px 10px;
+      color: #fff;
+      background: #79b4bd;
+      border: none;
+      border-radius: 40px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    hr {
+      /*입력폼과 회원가입링크 사이의 구분선*/
+      border: solid 2px #fff;
+      width: 90%;
+      margin-top: 30px;
+    }
+
+    .caption {
+      /*회원가입 링크 연결을 포함하는 div 태그*/
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .caption a {
+      /*회원가입 링크*/
+      margin-right: 30px;
+      text-align: center;
+      color: #978686;
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+
+  <body>
+    <section class="login-form">
+      <!--전체화면을 포함하는 박스-->
+      <div id="content">
+        <!--로그인 템플릿을 포함하는 div 태그-->
+
+        <div>
+          <h1>안녕하세요,<br />서비스명 입니다.</h1>
+          <p>원활한 서비스 이용을 위해 로그인 해주세요.</p>
+        </div>
+
+        <form action="{% url 'account:login' %}" method="POST">
+            {% csrf_token %}
+            <div class="int-area">
+                <!--아이디 입력칸-->
+                <input type="text" name="username" id="username" autocomplete="off" required />
+                <label for="username">아이디</label>
+            </div>
+            <div class="int-area">
+                <!--비밀번호 입력칸-->
+                <input
+                type="password"
+                name="password"
+                id="password"
+                autocomplete="off"
+                required
+                />
+                <label for="password">비밀번호</label>
+            </div>
+            <div class="btn-area">
+                <!--로그인 버튼-->
+                <button id="btn" type="submit">로그인</button>
+            </div>
+        </form>
+
+        <hr />
+        <div class="caption">
+          <!--회원가입 링크-->
+          <a href="{% url 'account:signup' %}" method="POST">회원가입 하기</a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

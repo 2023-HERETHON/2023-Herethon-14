@@ -1,21 +1,205 @@
-<body>
-    <form method="POST" action="{% url 'account:signup' %}">
-        {% csrf_token %}
-        <input type="text" name="userName" value="" placeholder="이름">
-        <br>
-        <br>
-        <input type="text" name="userid" value="" placeholder="아이디를 입력하세요">
-        <br>
-        <br>
-        <input type="password" name="password" value="" placeholder="비밀번호를 입력해주세요">
-        <br>
-        <br>
-        <input type="password" name="password2" value="" placeholder="비밀번호를 다시 입력해주세요">
-        <input type="submit" value="확인" >
-    </form>
-    {% if messages %}
-        {% for message in messages %}
-            <div class="error-message">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+
+  <style>
+    body {
+      /*전체 body 태그*/
+      font-family: "Noto Sans KR", sans-serif;
+      align-items: center;
+    }
+
+    .signup-form {
+      /*전체 화면을 포함하는 section 박스*/
+      align-items: center;
+      position: absolute;
+      width: 550px;
+      height: 1100px;
+      background: #e6e2dd;
+      margin-left: 40%;
+    }
+
+    #content {
+      /*회원가입 템플릿을 포함하는 div 태그*/
+      margin-top: 60px;
+    }
+
+    .signup-form h1 {
+      /*상단 "회원가입" 문구 h1*/
+      margin-left: 50px;
+      margin-top: 10px;
+      margin-bottom: 80px;
+      font-size: 45px;
+      text-align: left;
+      line-height: 120%;
+      text-shadow: 2px 2px 6px gray;
+    }
+
+    label {
+      /*각각의 입력칸에 해당되는 label 태그*/
+      margin-left: 50px;
+      margin-bottom: 5px;
+      font-size: 30px;
+    }
+
+    .int-area {
+      /*각각의 입력칸을 포함하는 div태그 */
+      width: 400px;
+      position: relative;
+      margin-top: 30px;
+      margin-left: 60px;
+    }
+
+    .int-area input {
+      /*각각의 input 태그*/
+      width: 90%;
+      padding: 30px 40px 30px;
+      background-color: transparent;
+      border: none;
+      background-color: #ffffff;
+      border-radius: 40px;
+      font-size: 25px;
+      outline: none;
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+
+    #check {
+      /*중복확인 버튼*/
+      position: absolute;
+      width: 25%;
+      padding: 15px;
+      top: 0px;
+      left: 340px;
+      height: 90px;
+      color: #ffffff;
+      background: #79b4bd;
+      border: none;
+      border-radius: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    #red {
+      /*각각의 라벨 옆 *을 나타내는 span 태그 색깔 조정*/
+      color: red;
+    }
+
+    .btn-area {
+      /*등록 버튼을 포함하는 div 태그*/
+      margin-top: 30px;
+      margin-left: 50px;
+    }
+
+    .btn-area button {
+      /*등록 버튼*/
+      width: 90%;
+      height: 90px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #fff;
+      background: #79b4bd;
+      border: none;
+      border-radius: 40px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  </style>
+
+  <body>
+    <section class="signup-form">
+      <!--전체화면을 포함하는 박스-->
+      <div id="content">
+        <div>
+          <h1>회원가입</h1>
+        </div>
+
+        <form method="POST" action="{% url 'account:signup' %}">
+            {% csrf_token %}  
+            <label for="name">이름<span id="red">*</span></label>
+            <div class="int-area">
+                <!--이름 입력칸-->
+                <input
+                type="text"
+                name="userName"
+                id="userName"
+                autocomplete="off"
+                required
+                />
+            </div>
+
+            <label for="userid">아이디<span id="red">*</span></label>
+            <div class="int-area">
+                <!--아이디 입력칸-->
+                <input
+                type="text"
+                name="userid"
+                id="userid"
+                placeholder="아이디를 입력해주세요"
+                autocomplete="off"
+                required
+                />
+                <button id="check" type="submit">중복<br />확인</button>
+            </div>
+
+            <label for="password">비밀번호<span id="red">*</span></label>
+            <div class="int-area">
+                <!--비밀번호 입력칸-->
+                <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="비밀번호를 입력해주세요"
+                autocomplete="off"
+                required
+                />
+            </div>
+
+            <label for="password2">비밀번호 확인<span id="red">*</span></label>
+            <div class="int-area">
+                <!--비밀번호 확인 재입력칸-->
+                <input
+                type="password"
+                name="password2"
+                id="password2"
+                placeholder="비밀번호를 다시 입력해주세요"
+                autocomplete="off"
+                required
+                />
+            </div>
+
+            <div class="btn-area">
+                <!--등록 버튼-->
+                <button id="btn" type="submit" onclick="pwcheck()">등록</button>
+                <!--클릭하면 pwcheck() 비밀번호 체크 (js)-->
+            </div>
+        </form>
+      </div>
+    </section>
+    <script>
+        var error = "{{ error }}";
+        if (error) {
+          alert(error);
+        }
+    </script>
+    <script type="text/javascript">
+        function pwcheck() {
+          var p1 = document.getElementById("password").value;
+          var p2 = document.getElementById("password2").value;
+  
+          if (p1 == p2) {
+            alert("회원가입이 완료되었습니다.");
+          } else {
+            alert("비밀번호가 일치하지 않습니다.");
+          }
+        }
+      </script>
+  </body>
+</html>
