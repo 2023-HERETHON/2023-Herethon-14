@@ -10,6 +10,9 @@ def mainView(request,cate):
 
 def mailView(request,temp_id):
     temp=get_object_or_404(Template,id=temp_id)
+    cate=temp.cate
+    if(cate==3):
+        return render (request,'write_basic.html',{'temp':temp})
     return render (request,'write.html',{'temp':temp})
 
 def deleteView(request,temp_id):
@@ -19,6 +22,8 @@ def deleteView(request,temp_id):
     return redirect('template:main',del_cate)
 
 def addPageView(request,cate):
+    if(cate==3):
+        return render (request,'add_basic.html',{'cate':cate})
     return render (request,'add.html',{'cate':cate})
 
 def addView(request,cate):
@@ -33,6 +38,9 @@ def addView(request,cate):
 
 def updatePageView(request,temp_id):
     update_temp=get_object_or_404(Template,id=temp_id)
+    cate=update_temp.cate
+    if(cate==3):
+        return render (request,'update_basic.html',{'temp':update_temp,'temp_id':temp_id})
     return render (request,'update.html',{'temp':update_temp,'temp_id':temp_id})
 
 def updateView(request,temp_id):
