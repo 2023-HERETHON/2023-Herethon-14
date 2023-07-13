@@ -18,12 +18,11 @@ window.onload = function () {
     return;
   }
 
-  //바꾸기
   for (let i = memoSchool.length - 1; i >= 0; i--) {
     // white-box
     let smallContain = document.createElement("div");
     smallContain.classList.add("smallContain");
-    //바꾸기
+
     let boxId = document.createElement("div");
     boxId.textContent = memoSchool[i].id;
     boxId.classList.add("id");
@@ -32,36 +31,35 @@ window.onload = function () {
     let tempBox = document.createElement("div");
     tempBox.classList.add("box");
     // h2 : date
-    //바꾸기
+
     let title = document.createElement("h2");
     title.textContent = memoSchool[i].title;
     title.classList.add("title");
 
     //여기는 내용들이기 때문에 main에 display 하지 않는다!!
     let greet = document.createElement("textarea");
-    //바꾸기
+
     greet.textContent = memoSchool[i].greet;
     greet.classList.add("greet");
     greet.style.display = "none";
 
     let bus = document.createElement("textarea");
-    //바꾸기
+
     bus.textContent = memoSchool[i].bus;
     bus.classList.add("bus");
     bus.style.display = "none";
 
     let content = document.createElement("textarea");
-    //바꾸기
+
     content.textContent = memoSchool[i].content;
     content.classList.add("content");
     content.style.display = "none";
 
     let end = document.createElement("textarea");
-    //바꾸기
+
     end.textContent = memoSchool[i].end;
     end.classList.add("end");
     end.style.display = "none";
-    //까지
 
     let pen = document.createElement("img");
     pen.src = "/minwoo/img/fePencil1.png";
@@ -88,7 +86,7 @@ window.onload = function () {
     const contEnd = this.querySelector(".end").textContent;
 
     window.location.href =
-      //바꾸기
+      //school 페이지와 연결된 메일 작성 할 수 있는 페이지로
       "/minwoo/pages/write/write.html?id=" +
       encodeURIComponent(boxId) +
       "&title=" +
@@ -126,11 +124,15 @@ function goOtherPage(elementId) {
   const page = document.getElementById(elementId);
 
   if (page && page.id === "dong-btn")
+    //동아리 페이지로
     window.location.href = "/minwoo/pages/main/group.html";
+  //기본 페이지로
   else if (page && page.id === "basic-btn")
     window.location.href = "/minwoo/pages/main/basic.html";
+  //my 페이지로
   else if (page && page.id === "my-btn")
     window.location.href = "/minwoo/pages/main/my.html";
+  //school 페이지로
   else if (page && page.id === "school-btn")
     window.location.href = "/minwoo/pages/main/school.html";
 }
