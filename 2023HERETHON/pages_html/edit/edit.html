@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>템플릿 수정하기</title>
+  </head>
+
+  <style>
+    #container {
+      position: absolute;
+      width: 550px;
+      height: 1100px;
+      background: #e6e2dd;
+
+      margin-left: 40%;
+    }
+
+    #img-box {
+      margin-top: 25px;
+      margin-left: 20px;
+    }
+    #title {
+      width: 480px;
+      height: 48px;
+
+      margin-left: 35px;
+      margin-top: 15px;
+
+      border-radius: 10px;
+      background: #faf8f8;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #000;
+      text-align: center;
+      font-family: Inter;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 50px;
+    }
+    #blue-box {
+      overflow: hidden;
+      width: 480px;
+      height: 600px;
+
+      margin-left: 35px;
+      margin-top: 30px;
+
+      background: rgba(178, 205, 209, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .contents {
+      width: 380px;
+      height: 60px;
+      max-height: 300px; /* 최대 높이 설정 */
+      overflow-y: auto;
+      /* white-space: pre-wrap; */
+
+      padding: 3px;
+      margin-left: 40px;
+      margin-top: 8px;
+
+      border: 1px solid #79b4bd;
+      background: #fff;
+
+      color: #000;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    #edit-btn {
+      width: 155px;
+      height: 60px;
+
+      border: none;
+      border-radius: 16px;
+      background: #7ab5be;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #fff;
+      font-family: Inter;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      margin-left: 200px;
+      margin-top: 50px;
+    }
+  </style>
+
+  <body>
+    <div id="container">
+      <div id="img-box">
+        <img
+          src="/minwoo/img/left.png"
+          id="arrow"
+          style="width: 45px; height: 45px"
+        />
+      </div>
+      <div id="title"></div>
+      <div id="blue-box">
+        <div class="contents" id="greet"></div>
+        <div class="contents" id="bus"></div>
+        <div class="contents" id="content"></div>
+        <div class="contents" id="end"></div>
+      </div>
+      <div>
+        <button id="edit-btn">수정하기</button>
+      </div>
+    </div>
+    <!-- 이부분도 -->
+    <script src="/minwoo/js/school/tempEdit.js"></script>
+  </body>
+</html>
