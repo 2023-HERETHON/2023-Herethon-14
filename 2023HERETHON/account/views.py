@@ -5,13 +5,14 @@ from django.contrib import auth
 from django.contrib import messages
 
 def login(request):
+    cate=1
     if request.method == "POST":
         userid = request.POST['username']
         pwd = request.POST['password']
         user = auth.authenticate(request, username=userid, password=pwd)
         if user is not None:
             auth.login(request, user)
-            return redirect('template:main')
+            return redirect('template:main', cate)
         else:
             return render(request, 'login.html')
     else: 
