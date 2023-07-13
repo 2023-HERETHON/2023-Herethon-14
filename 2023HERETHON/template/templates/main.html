@@ -203,8 +203,9 @@
             </div>
           {% endif %}
           {% if user.is_authenticated %}
-            <div style="display: flex; justify-content: right;">
-              <a  href="{% url 'account:logout' %}">로그아웃</a>
+            <div style="display: flex; justify-content:space-between;">
+              <p style="color: white; float: left;margin: 0;">{{user.first_name}} 님</p>
+              <a  style="float: right;" href="{% url 'account:logout' %}">로그아웃</a>
             </div>
           {% endif %}
           <div id="service-name"></div>

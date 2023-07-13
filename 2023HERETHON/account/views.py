@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -20,16 +21,17 @@ def login(request):
 
 def signup(request):
     if request.method == 'POST':
-        username = request.POST['userid']
+        userid = request.POST['userid']
+        username = request.POST['userName']
         password = request.POST['password']
         password2 = request.POST['password2']
         
-        if User.objects.filter(username=username).exists():
+        if User.objects.filter(username=userid).exists():
             #messages.error(request, '이미 존재하는 아이디입니다.')
             return render(request, 'signup.html', {'error': '이미 존재하는 아이디입니다.'})
 
         if request.POST['password'] == request.POST['password2']:
-            user = User.objects.create_user(username=request.POST['userid'], password=request.POST['password'])
+            user = User.objects.create_user(username=request.POST['userid'], password=request.POST['password'],first_name=request.POST['userName'])
             auth.login(request, user)
             return render(request, 'login.html')
         else:
@@ -41,3 +43,12 @@ def logout(request):
     cate=1
     auth.logout(request)
     return redirect('template:main',cate)
+
+def do_duplicate_check(request):
+    print('아이디 중복 확인')
+    userid=request.GET.get('user_id')
+    if User.objects.filter(username=userid).exists():
+            duplicate = "fail"
+    else: duplicate = "pass"
+    context={'duplicate':duplicate}
+    return JsonResponse(context)
