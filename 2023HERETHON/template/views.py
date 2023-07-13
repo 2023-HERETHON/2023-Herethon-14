@@ -29,6 +29,7 @@ def addPageView(request,cate):
 def addView(request,cate):
     new_temp=Template()
     new_temp.title=request.POST['title']
+    new_temp.greet=request.POST['greet']
     new_temp.intro=request.POST['intro']
     new_temp.content=request.POST['content']
     new_temp.bye=request.POST['bye']
