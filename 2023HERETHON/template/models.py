@@ -12,10 +12,10 @@ class Template(models.Model):
     id = models.AutoField(primary_key=True)
     cate = models.IntegerField(choices=Cate.choices)
     title = models.TextField(blank=True)
-    greet = models.TextField(blank=True)
-    intro = models.TextField(blank=True)
-    content = models.TextField(blank=True)
-    bye = models.TextField(blank=True)
+    greet = models.TextField(blank=True)    # 인사말
+    intro = models.TextField(blank=True)    # 용건
+    content = models.TextField(blank=True)  # 내용
+    bye = models.TextField(blank=True)      # 끝인사
 
     def __str__(self):
         return "{}:{}-{}".format(self.cate,self.id,self.title)

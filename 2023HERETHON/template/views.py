@@ -39,6 +39,7 @@ def updateView(request,temp_id):
     update_temp=get_object_or_404(Template,id=temp_id)
     cate=update_temp.cate
     update_temp.title=request.POST['title']
+    update_temp.greet=request.POST['greet']
     update_temp.intro=request.POST['intro']
     update_temp.content=request.POST['content']
     update_temp.bye=request.POST['bye']

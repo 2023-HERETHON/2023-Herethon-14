@@ -1,26 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인페이지</title>
+    {% load static %}
+  </head>
 
-<a href="{% url 'template:main' cate=1 %}">학교</a>
-<a href="{% url 'template:main' cate=2 %}">동아리</a>
-<a href="{% url 'template:main' cate=3 %}">기본</a>
-<a href="{% url 'template:main' cate=4 %}">my</a>
+  <style>
+    #container {
+      position: absolute;
+      width: 550px;
+      height: 1100px;
+      background: #e6e2dd;
 
+      margin-left: 40%;
+    }
+    #top-box {
+      position: absolute;
+      width: 550px;
+      height: 290px;
+      border-radius: 0px 0px 40px 40px;
+      background: #79b4bd;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    /* 고침 */
+    #service-name {
+      width: 280px;
+      height: 85px;
+      flex-shrink: 0;
 
-<br>
+      margin-left: 140px;
+      margin-top: 20px;
 
-{% for temp in temps %}                
-            <li><a href="{% url 'template:mail' temp.id %}">{{temp.title}}</a></li> 
-            <a href="{% url 'template:updatePage' temp.id %}">수정</a>
-            <br>
-{% endfor %}
+      background: #fff;
 
+      background: #fff;
+      filter: blur(3.5px);
+    }
+    /* 고침 */
+    #search {
+      position: relative;
+      width: 440px;
+      height: 55px;
 
-<br><br>
-<a href="{% url 'template:addPage' cate %}">추가</a>
+      margin-left: 55px;
+      margin-top: 20px;
 
-<br><br>
+      border: none;
+      border-radius: 15px;
+      background: #fff;
 
-검색
-<form method="GET" action="{% url 'template:search' %}">
-    <input name="search" type="text" placeholder="검색어 입력" aria-label="Search">
-    <button type="submit">Search</button>
-  </form>
+      color: #b2b2b2;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    /* 추가 */
+    #img-box {
+      position: relative;
+      margin-left: 455px;
+      margin-top: -46px;
+    }
+
+    /* 고친부분 */
+    #btn-box {
+      width: 500px;
+      height: 64px;
+
+      margin-top: 20px;
+      margin-left: 30px;
+    }
+    /* //고침 */
+    #school-btn {
+      width: 100px;
+      height: 47px;
+
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 0px;
+
+      border: none;
+      border-radius: 23px;
+      background: rgba(178, 205, 209, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #fff;
+      text-align: center;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    /* 고친부분 */
+    .else-btn {
+      width: 100px;
+      height: 47px;
+      flex-shrink: 0;
+
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 0px;
+
+      border: none;
+      border-radius: 23px;
+      background: #fff;
+
+      color: #000;
+      text-align: center;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #temp-contain {
+      overflow-y: scroll;
+      display: flex;
+
+      -ms-overflow-style: none; /* 인터넷 익스플로러 */
+      scrollbar-width: none; /* 파이어폭스 */
+      /* 고친부분 */
+      width: 490px;
+      height: 450px;
+
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      padding: 10px;
+      margin-top: 320px;
+      margin-left: 10px;
+    }
+
+    #temp-contain::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera 등 웹킷 기반 브라우저 */
+    }
+
+    .box {
+      /* 고친부분 */
+      position: relative;
+      width: 210px;
+      height: 160px;
+
+      margin-left: 20px;
+      margin-bottom: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+      background: rgba(178, 205, 209, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .title {
+      color: #000;
+
+      text-align: center;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    .temp-edit-img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      margin-bottom: 8px;
+      margin-right: 8px;
+    }
+
+    #add-img {
+      margin-top: 50px;
+      margin-left: 250px;
+    }
+
+    a {
+      text-decoration-line: none;
+      text-decoration-style : none;
+      color:white;
+    }
+  </style>
+
+  <body>
+    <div id="container">
+      <div id="top-box">
+        <div>
+          {% if not user.is_authenticated %}
+            <div style="display: flex; justify-content:right;">
+              <div style="justify-content: right; text-align: right;">
+                <a href="{% url 'account:signup' %}">회원가입</a><br>
+                <a href="{% url 'account:login' %}">로그인</a>
+              </div>
+            </div>
+          {% endif %}
+          {% if user.is_authenticated %}
+            <div style="display: flex; justify-content: right;">
+              <a  href="{% url 'account:logout' %}">로그아웃</a>
+            </div>
+          {% endif %}
+          <div id="service-name"></div>
+
+          
+        </div>
+        
+        <!-- 검색어 기능이 있는 박스 -->
+        <div id="search-box">
+          <form method="GET" action="{% url 'template:search' %}">
+            <input id="search" name="search" type="title" placeholder="템플릿을 검색하세요" />
+          </form>
+          
+          <div id="img-box">
+            <img
+              id="search-img "
+              src="{% static 'img/gg_search.png' %}"
+              style="width: 35px; height: 35px"
+            />
+          </div>
+        </div>
+
+        <!-- 고침까지 -->
+        <div id="btn-box">
+          {% if cate == 1  %}
+          <button id="school-btn" onclick="location.href='/template/main/1'">학교</button>
+          {% else %}
+          <button class="else-btn" onclick="location.href='/template/main/1'">학교</button>
+          {% endif %}
+
+          {% if cate == 2  %}
+          <button id="school-btn" onclick="location.href='/template/main/2'">동아리</button>
+          {% else %}
+          <button class="else-btn" onclick="location.href='/template/main/2'">동아리</button>
+          {% endif %}
+
+          {% if cate == 3  %}
+          <button id="school-btn" onclick="location.href='/template/main/3'">기본</button>
+          {% else %}
+          <button class="else-btn" onclick="location.href='/template/main/3'">기본</button>
+          {% endif %}
+
+          {% if cate == 4  %}
+          <button id="school-btn" onclick="location.href='/template/main/4'">MY</button>
+          {% else %}
+          <button class="else-btn" onclick="location.href='/template/main/4'">MY</button>
+          {% endif %}
+        </div>
+      </div>
+      <!-- 여기안에 템플릿들 box,title생성 -->
+      <div id="temp-contain">
+        {% for temp in temps %}                
+          <div class="smallContain" onclick="location.href='/template/mail/{{temp.id}}'">
+            <div class="box">
+              <h2>{{temp.title}}</h2>
+              <a href="{% url 'template:updatePage' temp.id %}">
+                <img
+                  class="temp-edit-img"
+                  src="{% static 'img/fePencil1.png' %}"
+                  style="width:18px;height:18px"
+                />
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <!-- 추가 버튼 -->
+      <div>
+        <a href="{% url 'template:addPage' cate %}">
+          <img
+            id="add-img"
+            src="{% static 'img/icons8_plus.png' %}"
+            style="width: 55px; height: 55px"
+          />
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
