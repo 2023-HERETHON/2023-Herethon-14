@@ -1,0 +1,16 @@
+<body>
+    <form method="POST" action="{% url 'account:signup' %}">
+        {% csrf_token %}
+        <input type="text" name="userName" value="" placeholder="이름">
+        <br>
+        <br>
+        <input type="text" name="userid" value="" placeholder="아이디를 입력하세요">
+        <br>
+        <br>
+        <input type="password" name="password" value="" placeholder="비밀번호를 입력해주세요">
+        <br>
+        <br>
+        <input type="password" name="password2" value="" placeholder="비밀번호를 다시 입력해주세요">
+        <input type="submit" value="확인" >
+    </form>
+</body>

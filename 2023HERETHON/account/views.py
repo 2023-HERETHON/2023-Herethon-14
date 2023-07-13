@@ -15,3 +15,21 @@ def login(request):
             return render(request, 'login.html')
     else: 
         return render(request, 'login.html')
+
+def signup(request):
+    if request.method == 'POST':
+        username = request.POST['userid']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+        
+        if User.objects.filter(username=username).exists():
+            return render(request, 'signup.html', {'error': '이미 존재하는 아이디입니다.'})
+        
+        if request.POST['password'] == request.POST['password2']:
+            user = User.objects.create_user(username=request.POST['userid'], password=request.POST['password'])
+            auth.login(request, user)
+            return render(request, 'login.html')
+        else:
+            return render(request, 'register.html', {'error': '비밀번호를 동일하게 입력하세요.'})
+        
+    return render(request, 'signup.html')
