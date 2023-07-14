@@ -39,7 +39,7 @@ function addTemp() {
     alert("템플릿 제목을 입력해주세요!");
   } else {
     //바꾸기
-    window.location.href = `/minwoo/pages/main/my.html?memoMy=${encodeURIComponent(
+    window.location.href = `/2023-Herethon-14/minwoo/pages/main/my.html?memoMy=${encodeURIComponent(
       JSON.stringify(newMemo)
     )}`;
   }
@@ -48,7 +48,7 @@ function addTemp() {
 let back = document.getElementById("arrow");
 
 function goMain() {
-  window.location.href = "/minwoo/pages/main/my.html";
+  window.location.href = "/2023-Herethon-14/minwoo/pages/main/my.html";
 }
 
 back.addEventListener("click", goMain);

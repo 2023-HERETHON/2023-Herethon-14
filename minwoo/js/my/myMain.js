@@ -63,7 +63,7 @@ window.onload = function () {
     //까지
 
     let pen = document.createElement("img");
-    pen.src = "/minwoo/img/fePencil1.png";
+    pen.src = "/2023-Herethon-14/minwoo/img/fePencil1.png";
     pen.style = "width:18px;height:18px";
     pen.classList.add("temp-edit-img");
 
@@ -88,7 +88,7 @@ window.onload = function () {
 
     window.location.href =
       //바꾸기
-      "/minwoo/pages/write/my.html?id=" +
+      "/2023-Herethon-14/minwoo/pages/write/my.html?id=" +
       encodeURIComponent(boxId) +
       "&title=" +
       encodeURIComponent(boxTitle) +
@@ -105,7 +105,7 @@ window.onload = function () {
 
 //클릭시 템플릿 추가 페이지로 넘어가는 함수 구현
 function goAddPage() {
-  window.location.href = "/minwoo/pages/add/my.html";
+  window.location.href = "/2023-Herethon-14/minwoo/pages/add/my.html";
 }
 //템플릿 추가 버튼 이벤트리스너
 addBtn.addEventListener("click", goAddPage);
@@ -116,7 +116,7 @@ elements.addEventListener("click", function (event) {
   if (event.target.classList.contains("temp-edit-img")) {
     event.stopPropagation();
     //바꾸기
-    window.location.href = "/minwoo/pages/edit/edit.html";
+    window.location.href = "/2023-Herethon-14/minwoo/pages/edit/edit.html";
   }
 });
 
@@ -125,11 +125,11 @@ function goOtherPage(elementId) {
   const page = document.getElementById(elementId);
 
   if (page && page.id === "dong-btn")
-    window.location.href = "/minwoo/pages/main/group.html";
+    window.location.href = "/2023-Herethon-14/minwoo/pages/main/group.html";
   else if (page && page.id === "basic-btn")
-    window.location.href = "/minwoo/pages/main/basic.html";
+    window.location.href = "/2023-Herethon-14/minwoo/pages/main/basic.html";
   else if (page && page.id === "my-btn")
-    window.location.href = "/minwoo/pages/main/my.html";
+    window.location.href = "/2023-Herethon-14/minwoo/pages/main/my.html";
   else if (page && page.id === "school-btn")
-    window.location.href = "/minwoo/pages/main/school.html";
+    window.location.href = "/2023-Herethon-14/minwoo/pages/main/school.html";
 }

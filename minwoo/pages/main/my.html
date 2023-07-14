@@ -15,10 +15,63 @@
 
       margin-left: 40%;
     }
+    /* 07/14 추가 ~ */
+    #personal {
+      padding: 20px;
+      height: 20px;
+    }
+
+    #personal-name {
+      display: inline-block;
+      width: 70px;
+      height: 30px;
+
+      color: #322929;
+      text-align: center;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      font-family: Inter;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #nim-text {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #logout-btn {
+      width: 95px;
+      height: 37px;
+
+      margin-left: 300px;
+      border: none;
+      background-color: #00000000;
+
+      color: #fff;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-decoration-line: underline;
+    }
+    /* ~ 까지 */
     #top-box {
       position: absolute;
       width: 550px;
-      height: 290px;
+      /* 07/14 수정 */
+      height: 328px;
       border-radius: 0px 0px 40px 40px;
       background: #79b4bd;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -29,6 +82,7 @@
       flex-shrink: 0;
 
       margin-left: 140px;
+      /* 07/14 수정 */
       margin-top: 20px;
 
       background: #fff;
@@ -125,7 +179,7 @@
       justify-content: space-between;
 
       padding: 10px;
-      margin-top: 320px;
+      margin-top: 350px;
       margin-left: 10px;
     }
 
@@ -179,6 +233,13 @@
   <body>
     <div id="container">
       <div id="top-box">
+        <!-- 07/14 수정 한 곳 -->
+        <div id="personal">
+          <div id="personal-name">김춘배</div>
+          <div id="nim-text">님</div>
+          <button id="logout-btn">로그아웃</button>
+        </div>
+        <!-- 까지 -->
         <div id="service-name"></div>
         <!-- 검색어 기능이 있는 박스 -->
         <div id="search-box">
@@ -186,7 +247,7 @@
           <div id="img-box">
             <img
               id="search-img "
-              src="/minwoo/img/gg_search.png"
+              src="/2023-Herethon-14/minwoo/img/gg_search.png"
               style="width: 35px; height: 35px"
             />
           </div>
@@ -223,12 +284,12 @@
       <div>
         <img
           id="add-img"
-          src="/minwoo/img/icons8_plus.png"
+          src="/2023-Herethon-14/minwoo/img/icons8_plus.png"
           style="width: 55px; height: 55px"
         />
       </div>
     </div>
     <!-- 바꾸기 <script src="/minwoo/js/이부분/main어쩌구.js"></script> -->
-    <script src="/minwoo/js/my/myMain.js"></script>
+    <script src="/2023-Herethon-14/minwoo/js/my/myMain.js"></script>
   </body>
 </html>

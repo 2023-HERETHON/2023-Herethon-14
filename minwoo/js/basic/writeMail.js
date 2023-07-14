@@ -3,15 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const memoTitle = urlParams.get("title");
   const memoContent = urlParams.get("content");
-  console.log(memoContent);
+  //console.log(memoContent);
   //화면에 출력하시
   document.getElementById("title").innerHTML = memoTitle;
-  console.log(memoTitle);
-  //document.getElementById("greet").innerHTML = memoGreet;
+  //console.log(memoTitle);
   document.getElementById("content").innerHTML = memoContent;
-
-  //document.getElementById("bus").innerHTML = memoBus;
-  //document.getElementById("end").innerHTML = memoEnd;
 });
 
 function goWhite(elementId) {
@@ -29,7 +25,7 @@ const backBtn = document.getElementById("arrow");
 
 //내가 바꿔야할 코드 부분 main.뭐시기.html
 function goMain() {
-  window.location.href = "/minwoo/pages/main/basic.html";
+  window.location.href = "/2023-Herethon-14/minwoo/pages/main/basic.html";
 }
 
 backBtn.addEventListener("click", goMain);
