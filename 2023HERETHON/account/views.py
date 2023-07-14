@@ -13,7 +13,8 @@ def login(request):
         user = auth.authenticate(request, username=userid, password=pwd)
         if user is not None:
             auth.login(request, user)
-            return redirect('template:main', cate)
+            ord=1
+            return redirect('template:main', cate,ord)
         else:
             return render(request, 'login.html', {'error': '입력한 내용을 다시 확인해주세요.'})
     else: 
