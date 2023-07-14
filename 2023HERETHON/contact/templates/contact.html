@@ -3,5 +3,319 @@
     {{contact.professor_name}} - {{contact.subject}}
     <br>
     {{contact.email}}
+    <a href="{% url 'contact:delete' contact.id %}">삭제</a>
     {%endfor%}
+    <a href="{% url 'contact:addPage' %}">추가</a>
 </body>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인페이지-연락망</title>
+  </head>
+
+  <style>
+    #container {
+      position: absolute;
+      width: 550px;
+      height: 1100px;
+      background: #e6e2dd;
+
+      margin-left: 40%;
+    }
+    /* 07/14 추가 ~ */
+    #personal {
+      padding: 20px;
+      height: 20px;
+    }
+
+    #personal-name {
+      display: inline-block;
+      width: 70px;
+      height: 30px;
+
+      color: #322929;
+      text-align: center;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      font-family: Inter;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #nim-text {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #logout-btn {
+      width: 95px;
+      height: 37px;
+
+      margin-left: 300px;
+      border: none;
+      background-color: #00000000;
+
+      color: #fff;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-decoration-line: underline;
+    }
+    /* ~ 까지 */
+    #top-box {
+      position: absolute;
+      width: 550px;
+      /* 07/15 수정 */
+      height: 280px;
+      border-radius: 0px 0px 40px 40px;
+      background: #79b4bd;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    #service-name {
+      /* 07/14 수정 11:15분*/
+      display: inline-block;
+      width: 260px;
+      height: 80px;
+      flex-shrink: 0;
+
+      margin-left: 140px;
+
+      margin-top: -40px;
+
+      background: #fff;
+      filter: blur(3.5px);
+    }
+
+    #search {
+      position: relative;
+      width: 440px;
+      height: 55px;
+
+      margin-left: 55px;
+      margin-top: 20px;
+
+      border: none;
+      border-radius: 15px;
+      background: #fff;
+
+      color: #b2b2b2;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    #img-box {
+      position: relative;
+      margin-left: 455px;
+      margin-top: -46px;
+    }
+
+    /* 07/15 */
+    #btn-box {
+      width: 550px;
+      height: 64px;
+
+      margin-top: 25px;
+      margin-left: 16px;
+    }
+    /* //고침 */
+    #contect-btn {
+      width: 90px;
+      height: 47px;
+
+      margin: 5px;
+
+      border: none;
+      border-radius: 23px;
+      background: rgba(178, 205, 209, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #fff;
+      text-align: center;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    /* 고친부분 */
+    .else-btn {
+      width: 90px;
+      height: 47px;
+      flex-shrink: 0;
+
+      margin: 5px;
+
+      border: none;
+      border-radius: 23px;
+      background: #fff;
+
+      color: #000;
+      text-align: center;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #temp-contain {
+      overflow-y: scroll;
+      display: flex;
+
+      -ms-overflow-style: none; /* 인터넷 익스플로러 */
+      scrollbar-width: none; /* 파이어폭스 */
+
+      width: 490px;
+      height: 300px;
+
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      padding: 10px;
+      margin-top: 300px;
+      margin-left: 10px;
+    }
+
+    #temp-contain::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera 등 웹킷 기반 브라우저 */
+    }
+
+    #mail-box {
+      width: 400px;
+      height: 60px;
+
+      padding-left: 10px;
+      padding-top: 10px;
+
+      margin-left: 55px;
+
+      border-radius: 10px;
+      background: rgba(198, 213, 213, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .professor-text {
+      display: inline-block;
+
+      color: #000;
+      text-align: center;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+    }
+
+    #trash-box {
+       margin-left:340px;
+       margin-top:-40px;
+    }
+    #add-img {
+      margin-top: 50px;
+      margin-left: 250px;
+    }
+  </style>
+
+  <body>
+    <div id="container">
+      <div id="top-box">
+        <!-- 07/14 수정 한 곳 -->
+        <div id="personal">
+          <div id="personal-name">홍민우</div>
+          <div id="nim-text">님</div>
+          <button id="logout-btn">로그아웃</button>
+        </div>
+        <!-- 07/14 수정까지 -->
+        <div id="service-name"></div>
+        <!-- 검색어 기능이 있는 박스 -->
+        <div id="search-box">
+          <input id="search" type="title" placeholder="템플릿을 검색하세요" />
+          <div id="img-box">
+            <img
+              id="search-img "
+              src="/2023-Herethon-14/minwoo/img/gg_search.png"
+              style="width: 35px; height: 35px"
+            />
+          </div>
+        </div>
+        <!-- 고침까지 -->
+        <div id="btn-box">
+          <button
+            class="else-btn"
+            id="school-btn"
+            onclick="goOtherPage('school-btn')"
+          >
+            학교
+          </button>
+          <button
+            class="else-btn"
+            id="dong-btn"
+            onclick="goOtherPage('dong-btn')"
+          >
+            동아리
+          </button>
+          <button
+            class="else-btn"
+            id="basic-btn"
+            onclick="goOtherPage('basic-btn')"
+          >
+            기본
+          </button>
+          <button class="else-btn" id="my-btn" onclick="goOtherPage('my-btn')">
+            MY
+          </button>
+          <button id="contect-btn" onclick="goOtherPage('my-btn')">
+            연락망
+          </button>
+        </div>
+      </div>
+
+      <div id="temp-contain">
+        <div id="mail-box">
+          <!-- professor subject address만 입력 받는 것-->
+          <div class="professor-text" id="professor">박대기</div>
+          <div class="professor-text">교수님</div>
+          <div class="professor-text" id="subject">운영체제</div>
+          <div id="address">12345@likelion.org</div>
+        <div id = trash-box>
+          <img
+            id="trash-img"
+            src="/2023-Herethon-14/minwoo/img/Vector.png"
+            style="width: 35px; height: 38px"
+          />
+        </div>
+      </div>
+      <!-- 추가 버튼 --> 
+    </div>
+      <div>
+        <img
+          id="add-img"
+          src="/2023-Herethon-14/minwoo/img/icons8_plus.png"
+          style="width: 55px; height: 55px"
+        />
+      </div>
+   
+  </body>
+</html>
