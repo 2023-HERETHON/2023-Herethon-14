@@ -152,7 +152,7 @@
                   <button style="position: absolute; top:0; right: 0px;" id="check" type="button" class="id_overlap_button" onclick="id_overlap_check()">중복<br />확인</button>
                 </div>
             </div>
-
+            <p class="overlap_msg" style="display:none">중복입니다</p>
             <label for="password">비밀번호<span id="red">*</span></label>
             <div class="int-area">
                 <!--비밀번호 입력칸-->
@@ -193,6 +193,7 @@
           alert(error);
         }
     </script>
+    <script src="{% static 'js/loginAlert.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
         function pwcheck() {
@@ -219,10 +220,12 @@
               success: function(data){
                 if(data['duplicate']=="fail"){
                   $('.id_overlap_button').show();
+                  $('.overlap_msg').show();
                   return;
                 }
                 else{
                   $('.id_overlap_button').hide();
+                  $('.overlap_msg').hide();
                   return;
                 }
               }
