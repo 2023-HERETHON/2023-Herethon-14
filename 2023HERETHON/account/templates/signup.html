@@ -87,6 +87,20 @@
       display: inline-block;
     }
 
+    .overlap_msg {
+      position: absolute;
+      left: 270px;
+      top: 510px;
+      color: red;
+    }
+
+    .pw_check_msg {
+      position: absolute;
+      left: 270px;
+      top: 850px;
+      color: red;
+    }
+
     #red {
       /*각각의 라벨 옆 *을 나타내는 span 태그 색깔 조정*/
       color: red;
@@ -122,116 +136,152 @@
         </div>
 
         <form method="post" action="{% url 'account:signup' %}">
-            {% csrf_token %}  
-            <label for="name">이름<span id="red">*</span></label>
-            <div class="int-area">
-                <!--이름 입력칸-->
-                <input
-                type="text"
-                name="userName"
-                id="userName"
-                autocomplete="off"
-                required
-                />
-            </div>
+          {% csrf_token %}
+          <label for="name">이름<span id="red">*</span></label>
+          <div class="int-area">
+            <!--이름 입력칸-->
+            <input
+              type="text"
+              name="userName"
+              id="userName"
+              placeholder="이름을 입력하세요"
+              autocomplete="off"
+              required
+            />
+          </div>
 
-            <label for="userid">아이디<span id="red">*</span></label>
-            <div class="int-area">
-                <!--아이디 입력칸-->
-                <input
-                type="text"
-                name="userid"
-                id="user_id"
-                placeholder="아이디를 입력해주세요"
-                autocomplete="off"
-                required
-                />
-                <div>
-                  
-                  <img style="position: absolute; top:0; right: -19px; height: 45px; margin-top: 20px;margin-left: 0;" src="{% static 'img/check.png' %}">
-                  <button style="position: absolute; top:0; right: 0px;" id="check" type="button" class="id_overlap_button" onclick="id_overlap_check()">중복<br />확인</button>
-                </div>
+          <label for="userid">아이디<span id="red">*</span></label>
+          <div class="int-area">
+            <!--아이디 입력칸-->
+            <input
+              type="text"
+              name="userid"
+              id="user_id"
+              placeholder="아이디를 입력해주세요"
+              autocomplete="off"
+              required
+            />
+            <div>
+              <img
+                style="
+                  position: absolute;
+                  top: 0;
+                  right: -19px;
+                  height: 45px;
+                  margin-top: 20px;
+                  margin-left: 0;
+                "
+                src="{% static 'img/check.png' %}"
+              />
+              <button
+                style="position: absolute; top: 0; right: 0px"
+                id="check"
+                type="button"
+                class="id_overlap_button"
+                onclick="id_overlap_check()"
+              >
+                중복<br />확인
+              </button>
             </div>
-            <p class="overlap_msg" style="display:none">중복입니다</p>
-            <label for="password">비밀번호<span id="red">*</span></label>
-            <div class="int-area">
-                <!--비밀번호 입력칸-->
-                <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="비밀번호를 입력해주세요"
-                autocomplete="off"
-                required
-                />
-            </div>
+          </div>
+          <p class="overlap_msg" style="display: none">
+            이미 존재하는 아이디입니다.
+          </p>
+          <label for="password">비밀번호<span id="red">*</span></label>
+          <div class="int-area">
+            <!--비밀번호 입력칸-->
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="비밀번호를 입력해주세요"
+              autocomplete="off"
+              required
+            />
+          </div>
 
-            <label for="password2">비밀번호 확인<span id="red">*</span></label>
-            <div class="int-area">
-                <!--비밀번호 확인 재입력칸-->
-                <input
-                type="password"
-                name="password2"
-                id="password2"
-                placeholder="비밀번호를 다시 입력해주세요"
-                autocomplete="off"
-                required
-                />
-            </div>
+          <label for="password2">비밀번호 확인<span id="red">*</span></label>
+          <div class="int-area">
+            <!--비밀번호 확인 재입력칸-->
+            <input
+              type="password"
+              name="password2"
+              id="password2"
+              placeholder="비밀번호를 다시 입력해주세요"
+              autocomplete="off"
+              onkeyup="pw_msg()"
+              required
+            />
+          </div>
+          <p class="pw_check_msg" style="display: none">
+            비밀번호가 일치하지 않습니다.
+          </p>
 
-            <div class="btn-area">
-                <!--등록 버튼-->
-                <button id="btn" type="submit" onclick="pwcheck()">등록</button>
-                <!--클릭하면 pwcheck() 비밀번호 체크 (js)-->
-            </div>
+          <div class="btn-area">
+            <!--등록 버튼-->
+            <button id="btn" type="submit" onclick="pwcheck()">등록</button>
+            <!--클릭하면 pwcheck() 비밀번호 체크 (js)-->
+          </div>
         </form>
       </div>
     </section>
     <script>
-        var error = "{{ error }}";
-        if (error) {
-          alert(error);
-        }
+      var error = "{{ error }}";
+      if (error) {
+        alert(error);
+      }
     </script>
     <script src="{% static 'js/loginAlert.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
-        function pwcheck() {
-          if($('.id_overlap_button').is(':visible')){
-            alert("아이디 중복확인을 해주세요");
-            return;
-          }
-          var p1 = document.getElementById("password").value;
-          var p2 = document.getElementById("password2").value;
+      function pw_msg() {
+        var p1 = document.getElementById("password").value;
+        var p2 = document.getElementById("password2").value;
 
-          if (p1!='' && p1 == p2) {
-            alert("회원가입이 완료되었습니다.");
-          } else if(p1 != p2) {
-            alert("비밀번호가 일치하지 않습니다.");
-          }
+        if (p1 !== p2) {
+          $(".pw_check_msg").show();
+          pw_msg();
+        } else {
+          $(".pw_check_msg").hide();
         }
-        function id_overlap_check() {
-          var user_id=document.getElementById("user_id").value;
-          if(user_id!=''){
-            $.ajax({
-              url: "{% url 'account:do_duplicate_check' %}",
-              data:{'user_id':user_id},
-              datatype: 'json',
-              success: function(data){
-                if(data['duplicate']=="fail"){
-                  $('.id_overlap_button').show();
-                  $('.overlap_msg').show();
-                  return;
-                }
-                else{
-                  $('.id_overlap_button').hide();
-                  $('.overlap_msg').hide();
-                  return;
-                }
+      }
+
+      function pwcheck() {
+        if ($(".id_overlap_button").is(":visible")) {
+          alert("아이디 중복확인을 해주세요");
+          return;
+        }
+        var p1 = document.getElementById("password").value;
+        var p2 = document.getElementById("password2").value;
+
+        if (p1 != "" && p1 == p2) {
+          alert("회원가입이 완료되었습니다.");
+        } else if (p1 != p2) {
+          alert("비밀번호가 일치하지 않습니다.");
+        }
+      }
+
+      function id_overlap_check() {
+        var user_id = document.getElementById("user_id").value;
+        if (user_id != "") {
+          $.ajax({
+            url: "{% url 'account:do_duplicate_check' %}",
+            data: { user_id: user_id },
+            datatype: "json",
+            success: function (data) {
+              if (data["duplicate"] == "fail") {
+                $(".id_overlap_button").show();
+                $(".overlap_msg").show();
+                return;
+              } else {
+                $(".id_overlap_button").hide();
+                $(".overlap_msg").hide();
+                return;
               }
-            });
-          }
+            },
+          });
         }
-      </script>
+      }
+    </script>
   </body>
 </html>
