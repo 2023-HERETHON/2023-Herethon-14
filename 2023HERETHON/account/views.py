@@ -40,9 +40,8 @@ def signup(request):
     return render(request, 'signup.html')
 
 def logout(request):
-    cate=1
     auth.logout(request)
-    return redirect('template:main',cate)
+    return render(request, 'login.html')
 
 def do_duplicate_check(request):
     print('아이디 중복 확인')

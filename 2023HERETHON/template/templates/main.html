@@ -19,7 +19,7 @@
     #top-box {
       position: absolute;
       width: 550px;
-      height: 290px;
+      height: 328px;
       border-radius: 0px 0px 40px 40px;
       background: #79b4bd;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -188,25 +188,70 @@
       text-decoration-style : none;
       color:white;
     }
+    #personal {
+      padding: 20px;
+      height: 20px;
+    }
+
+    #personal-name {
+      display: inline-block;
+      width: 70px;
+      height: 30px;
+
+      color: #322929;
+      text-align: center;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      font-family: Inter;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #nim-text {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #logout-btn {
+      width: 95px;
+      height: 37px;
+
+      margin-left: 300px;
+      border: none;
+      background-color: #00000000;
+
+      color: #fff;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-decoration-line: underline;
+    }
+    /* ~ 까지 */
   </style>
 
   <body>
     <div id="container">
       <div id="top-box">
         <div>
-          {% if not user.is_authenticated %}
-            <div style="display: flex; justify-content:right;">
-              <div style="justify-content: right; text-align: right;">
-                <a href="{% url 'account:signup' %}">회원가입</a><br>
-                <a href="{% url 'account:login' %}">로그인</a>
-              </div>
-            </div>
-          {% endif %}
           {% if user.is_authenticated %}
-            <div style="display: flex; justify-content:space-between;">
-              <p style="color: white; float: left;margin: 0;">{{user.first_name}} 님</p>
-              <a  style="float: right;" href="{% url 'account:logout' %}">로그아웃</a>
-            </div>
+
+          <div id="personal">
+            <div id="personal-name">{{user.first_name}}</div>
+            <div id="nim-text">님</div>
+            <button id="logout-btn" onclick="location.href='/account/logout/'" >로그아웃</button>
+          </div>
           {% endif %}
           <div id="service-name"></div>
 
