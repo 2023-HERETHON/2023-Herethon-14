@@ -89,6 +89,14 @@
 <a href="https://www.erdcloud.com/d/HzeYqpy4aMjGPFyg4"><img width="652" alt="스크린샷 2023-07-13 오전 4 42 30" src="https://github.com/2023-HERETHON/2023-Herethon-14/assets/100216331/43c04524-ad33-4f3b-b888-a42ebd04b8a6"></a>
 
 ### 화면 구성
+![008](https://github.com/2023-HERETHON/2023-Herethon-14/assets/80439045/cdfd3c9a-c2aa-4643-934d-faf76982be9a)
+![009](https://github.com/2023-HERETHON/2023-Herethon-14/assets/80439045/3abdd352-c5dc-4922-82e4-d0ba12a50626)
+![010](https://github.com/2023-HERETHON/2023-Herethon-14/assets/80439045/98cb1736-c8ab-43ea-995d-52cf5dff7a07)
+![011](https://github.com/2023-HERETHON/2023-Herethon-14/assets/80439045/29494bba-8f8e-4da2-aebe-466bfd2e8e22)
+![012](https://github.com/2023-HERETHON/2023-Herethon-14/assets/80439045/fbc9d9ea-ff1b-4fa6-82a7-7fc44cacb72c)
+![013](https://github.com/2023-HERETHON/2023-Herethon-14/assets/80439045/044300c9-e203-4993-b0ae-e2fbf92ffeee)
+![014](https://github.com/2023-HERETHON/2023-Herethon-14/assets/80439045/fbf95561-4d30-452e-bd2a-e35b5957a39d)
+
 
 
 
