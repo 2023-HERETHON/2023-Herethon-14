@@ -5,4 +5,5 @@ from contact.views import *
 app_name = 'contact'
 
 urlpatterns = [
+    path("main/", views.contact, name="contact_list"),
 ]
