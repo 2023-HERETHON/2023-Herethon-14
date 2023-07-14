@@ -59,27 +59,6 @@
 <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
 
 
-### 폴더 구조
-
-  ```
-  📂 all_project
-  └─ my_project
-   ├─ my_project
-   │  ├─ __init__.py
-   │  ├─ asgi.py
-   │  ├─ settings.py
-   │  ├─ urls.py
-   │  └─ wsgi.py
-   ├─ myapp/
-   │  ├─ __init__.py
-   │  ├─ admin.py
-   │  ├─ apps.py
-   │  ├─ models.py
-   │  ├─ tests.py
-   │  └─ views.py
-   └─ manage.py
-  ```
-
 ### 개발환경에서의 실행 방법
   ```
   $ django-admin startproject 프로젝트명
