@@ -61,6 +61,8 @@
 
 ### 개발환경에서의 실행 방법
   ```
+<가상환경>
+python -m venv newvenv
   $ django-admin startproject 프로젝트명
   $ python manage.py runserver
   ```
