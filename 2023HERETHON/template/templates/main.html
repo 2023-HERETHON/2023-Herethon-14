@@ -19,21 +19,21 @@
     #top-box {
       position: absolute;
       width: 550px;
-      height: 328px;
+      height: 300px;
       border-radius: 0px 0px 40px 40px;
       background: #79b4bd;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
-    /* 고침 */
+
     #service-name {
-      width: 280px;
-      height: 85px;
+      display: inline-block;
+      width: 260px;
+      height: 80px;
       flex-shrink: 0;
 
       margin-left: 140px;
-      margin-top: 20px;
 
-      background: #fff;
+      margin-top: -40px;
 
       background: #fff;
       filter: blur(3.5px);
@@ -118,13 +118,35 @@
       line-height: normal;
     }
 
+    select#select-box {
+      margin-top: 360px;
+      margin-left: 38px;
+      width: 85px;
+      height: 40px;
+
+      border: none;
+      border-radius: 15px;
+      background: #79b4bd;
+
+      background-color: #79b4bd;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #000;
+      text-align: center;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
     #temp-contain {
       overflow-y: scroll;
       display: flex;
 
       -ms-overflow-style: none; /* 인터넷 익스플로러 */
       scrollbar-width: none; /* 파이어폭스 */
-      /* 고친부분 */
+
       width: 490px;
       height: 450px;
 
@@ -132,13 +154,50 @@
       justify-content: space-between;
 
       padding: 10px;
-      margin-top: 320px;
+      /* 07-14 */
+      margin-top: 30px;
       margin-left: 10px;
     }
 
     #temp-contain::-webkit-scrollbar {
       display: none; /* Chrome, Safari, Opera 등 웹킷 기반 브라우저 */
     }
+
+    /* 07/14 수정 11:15분*/
+    #basic-box {
+      position: relative;
+      width: 210px;
+      height: 160px;
+
+      margin-left: 20px;
+      margin-bottom: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+      background: rgba(141, 196, 186, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    #basic-box-text {
+      color: #000;
+
+      text-align: center;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    #pencil-img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    /* 07/14 수정 11:15분 까지*/
 
     .box {
       /* 고친부분 */
@@ -185,8 +244,8 @@
 
     a {
       text-decoration-line: none;
-      text-decoration-style : none;
-      color:white;
+      text-decoration-style: none;
+      color: white;
     }
     #personal {
       padding: 20px;
@@ -250,20 +309,25 @@
           <div id="personal">
             <div id="personal-name">{{user.first_name}}</div>
             <div id="nim-text">님</div>
-            <button id="logout-btn" onclick="location.href='/account/logout/'" >로그아웃</button>
+            <button id="logout-btn" onclick="location.href='/account/logout/'">
+              로그아웃
+            </button>
           </div>
           {% endif %}
           <div id="service-name"></div>
-
-          
         </div>
-        
+
         <!-- 검색어 기능이 있는 박스 -->
         <div id="search-box">
           <form method="GET" action="{% url 'template:search' %}">
-            <input id="search" name="search" type="title" placeholder="템플릿을 검색하세요" />
+            <input
+              id="search"
+              name="search"
+              type="title"
+              placeholder="템플릿을 검색하세요"
+            />
           </form>
-          
+
           <div id="img-box">
             <img
               id="search-img "
@@ -275,46 +339,90 @@
 
         <!-- 고침까지 -->
         <div id="btn-box">
-          {% if cate == 1  %}
-          <button id="school-btn" onclick="location.href='/template/main/1'">학교</button>
+          {% if cate == 1 %}
+          <button id="school-btn" onclick="location.href='/template/main/1/1'">
+            학교
+          </button>
           {% else %}
-          <button class="else-btn" onclick="location.href='/template/main/1'">학교</button>
-          {% endif %}
-
-          {% if cate == 2  %}
-          <button id="school-btn" onclick="location.href='/template/main/2'">동아리</button>
+          <button class="else-btn" onclick="location.href='/template/main/1/1'">
+            학교
+          </button>
+          {% endif %} {% if cate == 2 %}
+          <button id="school-btn" onclick="location.href='/template/main/2/1'">
+            동아리
+          </button>
           {% else %}
-          <button class="else-btn" onclick="location.href='/template/main/2'">동아리</button>
-          {% endif %}
-
-          {% if cate == 3  %}
-          <button id="school-btn" onclick="location.href='/template/main/3'">기본</button>
+          <button class="else-btn" onclick="location.href='/template/main/2/1'">
+            동아리
+          </button>
+          {% endif %} {% if cate == 3 %}
+          <button id="school-btn" onclick="location.href='/template/main/3/1'">
+            기본
+          </button>
           {% else %}
-          <button class="else-btn" onclick="location.href='/template/main/3'">기본</button>
-          {% endif %}
-
-          {% if cate == 4  %}
-          <button id="school-btn" onclick="location.href='/template/main/4'">MY</button>
+          <button class="else-btn" onclick="location.href='/template/main/3/1'">
+            기본
+          </button>
+          {% endif %} {% if cate == 4 %}
+          <button id="school-btn" onclick="location.href='/template/main/4/1'">
+            MY
+          </button>
           {% else %}
-          <button class="else-btn" onclick="location.href='/template/main/4'">MY</button>
+          <button class="else-btn" onclick="location.href='/template/main/4/1'">
+            MY
+          </button>
           {% endif %}
         </div>
       </div>
+      <!-- 07/14 11:25 -->
+      <select name="선택" id="select-box" onchange="if(this.value) location.href=(this.value);">
+        {% if ord == 1 %}
+          <option value="{% url 'template:main' cate=cate ord=1 %}" selected>최신순</option>
+          <option value="{% url 'template:main' cate=cate ord=2 %}">ㄱㄴㄷ</option>
+        {% else %}
+          <option value="{% url 'template:main' cate=cate ord=1 %}" >최신순</option>
+          <option value="{% url 'template:main' cate=cate ord=2 %}" selected>ㄱㄴㄷ</option>
+        {% endif %}
+      </select>
+      <!-- 07/14 11:25 -->
       <!-- 여기안에 템플릿들 box,title생성 -->
       <div id="temp-contain">
-        {% for temp in temps %}                
-          <div class="smallContain" onclick="location.href='/template/mail/{{temp.id}}'">
-            <div class="box">
-              <h2>{{temp.title}}</h2>
-              <a href="{% url 'template:updatePage' temp.id %}">
+        {% for temp_base in temps_bases %}
+        <div class="smallContain" onclick="location.href='/template/mail/{{temp_base.id}}'">
+          <div id="basic-box" style="position: relative">
+            <div>
+              <p id="basic-box-text">{{temp_base.title}}</p>
+              <a href="{% url 'template:updatePage' temp_base.id %}">
                 <img
-                  class="temp-edit-img"
+                  id="pencil-img"
                   src="{% static 'img/fePencil1.png' %}"
-                  style="width:18px;height:18px"
+                  style="width: 18px; height: 18px"
                 />
               </a>
             </div>
           </div>
+        </div>
+        
+        {% endfor %}
+        {% for temp in temps %}
+        <!-- 07/14 11:25 기본 제공으로 화면에 박혀있는 박스 양식 -->
+        
+        <!-- 07/14 11:25 기본 제공으로 화면에 박혀있는 박스 양식 ~ 까지 -->
+        <div
+          class="smallContain"
+          onclick="location.href='/template/mail/{{temp.id}}'"
+        >
+          <div class="box">
+            <h2>{{temp.title}}</h2>
+            <a href="{% url 'template:updatePage' temp.id %}">
+              <img
+                class="temp-edit-img"
+                src="{% static 'img/fePencil1.png' %}"
+                style="width: 18px; height: 18px"
+              />
+            </a>
+          </div>
+        </div>
         {% endfor %}
       </div>
       <!-- 추가 버튼 -->

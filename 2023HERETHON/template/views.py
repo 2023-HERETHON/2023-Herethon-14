@@ -5,13 +5,13 @@ from django.db.models import Q
 # Create your views here.
 
 def mainView(request,cate,ord):
-    temps_base=Template.objects.filter(cate=cate,is_base=True)   # 기본 제공 템플릿
+    temps_bases=Template.objects.filter(cate=cate,is_base=True)   # 기본 제공 템플릿
     # 추가된 템플릿
     if(ord==1): # 최신순
         temps=Template.objects.filter(cate=cate,is_base=False).order_by('-created_at')       
     else:       # 제목 가나다순
         temps=Template.objects.filter(cate=cate,is_base=False).order_by('title')
-    return render (request,'main.html',{'temps_base':temps_base,'temps':temps,'cate':cate})
+    return render (request,'main.html',{'temps_bases':temps_bases,'temps':temps,'cate':cate,'ord':ord})
 
 def mailView(request,temp_id):
     temp=get_object_or_404(Template,id=temp_id)
