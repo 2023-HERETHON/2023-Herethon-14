@@ -3,9 +3,7 @@
 
 
 ### 📨 서비스 소개
-#### 바쁜 일상을 보내는 대학생들의 더욱 편리하고 효율적인 메일 작성을 위해 탄생한 메일매일은 다양한 메일템플릿을 제공하는 모바일 웹 서비스입니다. 
-#### 교수님께 이메일로 질문을 하거나 동료 학생들과의 프로젝트 협업을 위한 메일을 보내야 할 때, 메일매일은 최적의 메일을 작성할 수 있도록 재공합니다. 
-#### 메일매일과 함께 좀 더 편리하고 더욱 성공적인 메일 커뮤니케이션을 경험해보세요. 
+#### 바쁜 일상을 보내는 대학생들의 더욱 편리하고 효율적인 메일 작성을 위해 탄생한 메일매일은 다양한 메일 템플릿을 제공하는 모바일 웹 서비스입니다. 교수님께 이메일로 질문을 드리거나 동료 학생들과의 프로젝트 협업을 위한 메일을 보내야 할 때, 메일매일은 최적의 메일을 작성할 수 있도록 합니다. 메일 작성이 필요한 대학 생활에서, 그 과정을 단순화하고 효율성을 높이며 단 몇분만에 전문적인 텍스트를 생성힐 수 있도록 도와줍니다. 메일매일과 함께 좀 더 편리하고 더욱 성공적인 메일 커뮤니케이션을 경험해보세요.
 
 
 ### 🙆🏻‍♀️ 팀원 소개
@@ -19,7 +17,7 @@
     <td  align="center">허채린</a></td>
   </tr>
   <tr width="100%">
-  <td  align="center">![홍민우님](https://github.com/2023-HERETHON/2023-Herethon-14/assets/80439045/a0f52c7d-7bce-4d9a-98ff-a78d22e4ac49)</a></td>
+  <td  align="center"><a href="https://imgbb.com/"><img src="https://i.ibb.co/MRr1QMW/f67635fddb50d05f2d0f142e63b0ab5c-sticker.png" alt="f67635fddb50d05f2d0f142e63b0ab5c-sticker" border="0" width="90px"></a></td>
   <td  align="center"><a href="https://imgbb.com/"><img src="https://i.ibb.co/MRr1QMW/f67635fddb50d05f2d0f142e63b0ab5c-sticker.png" alt="f67635fddb50d05f2d0f142e63b0ab5c-sticker" border="0" width="90px"></a></td>
   <td  align="center"><a href="https://imgbb.com/"><img src="https://i.ibb.co/2KDG82L/d006044e5996d0023cd2e18425aa4677-sticker.png" alt="d006044e5996d0023cd2e18425aa4677-sticker" border="0" width="90px"></a></td>
     <td  align="center"><a href="https://imgbb.com/"><img src="https://i.ibb.co/sWXnzcJ/befbedf87e51f5b02aac8b882ada60fd-sticker.png" alt="befbedf87e51f5b02aac8b882ada60fd-sticker" border="0" width="90px"></a></td>
