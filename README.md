@@ -63,7 +63,10 @@
   ```
 <가상환경>
 python -m venv newvenv
-  $ django-admin startproject 프로젝트명
+python newvenv/Scripts/activate
+
+  $ git checkout backend
+  $ pip install django
   $ python manage.py runserver
   ```
   <hr/>
