@@ -90,7 +90,6 @@ python newvenv/Scripts/activate
 
 ### API 주소
 
-<a href="https://ibb.co/ZKFPmW1"><img src="https://i.ibb.co/4MXGdPg/api.png">API 명세서</a><br><img width="709" alt="스크린샷 2023-07-13 오전 4 48 23" src="https://github.com/2023-HERETHON/2023-Herethon-14/assets/100216331/7ffd6b38-9a25-4012-97a5-b6c3c219aa00">
-
+<a href="https://ibb.co/ZKFPmW1"><img src="https://i.ibb.co/4MXGdPg/api.png">
 
 ### 배포 링크
