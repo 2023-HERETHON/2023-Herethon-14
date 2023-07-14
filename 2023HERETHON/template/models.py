@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -16,6 +17,8 @@ class Template(models.Model):
     intro = models.TextField(blank=True)    # 용건
     content = models.TextField(blank=True)  # 내용
     bye = models.TextField(blank=True)      # 끝인사
+    is_base = models.BooleanField(default=False)
+    created_at=models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return "{}:{}-{}".format(self.cate,self.id,self.title)

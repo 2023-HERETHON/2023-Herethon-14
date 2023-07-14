@@ -180,7 +180,7 @@
   <body>
     <div id="container">
         <div id="img-box" style="display: flex; justify-content: space-between;">
-            <a style="float: left;" href="{% url 'template:main' temp.cate %}">
+            <a style="float: left;" href="{% url 'template:main' cate=temp.cate ord=1 %}">
                 <img
                 src="{% static 'img/left.png' %}"
                 id="arrow"

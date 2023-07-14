@@ -4,22 +4,28 @@ from django.db.models import Q
 
 # Create your views here.
 
-def mainView(request,cate):
-    temps=Template.objects.filter(cate=cate)
-    return render (request,'main.html',{'temps':temps,'cate':cate})
+def mainView(request,cate,ord):
+    temps_base=Template.objects.filter(cate=cate,is_base=True)   # 기본 제공 템플릿
+    # 추가된 템플릿
+    if(ord==1): # 최신순
+        temps=Template.objects.filter(cate=cate,is_base=False).order_by('-created_at')       
+    else:       # 제목 가나다순
+        temps=Template.objects.filter(cate=cate,is_base=False).order_by('title')
+    return render (request,'main.html',{'temps_base':temps_base,'temps':temps,'cate':cate})
 
 def mailView(request,temp_id):
     temp=get_object_or_404(Template,id=temp_id)
     cate=temp.cate
+    is_base=temp.is_base
     if(cate==3):
-        return render (request,'write_basic.html',{'temp':temp})
-    return render (request,'write.html',{'temp':temp})
+        return render (request,'write_basic.html',{'temp':temp,'is_base':is_base})
+    return render (request,'write.html',{'temp':temp,'is_base':is_base})
 
 def deleteView(request,temp_id):
     del_temp=get_object_or_404(Template,id=temp_id)
     del_cate=del_temp.cate
     del_temp.delete()
-    return redirect('template:main',del_cate)
+    return redirect('template:main',cate=del_cate,ord=1)
 
 def addPageView(request,cate):
     if(cate==3):
@@ -35,7 +41,7 @@ def addView(request,cate):
     new_temp.bye=request.POST['bye']
     new_temp.cate=cate
     new_temp.save()
-    return redirect('template:main',cate)
+    return redirect('template:main',cate=cate,ord=1)
 
 def updatePageView(request,temp_id):
     update_temp=get_object_or_404(Template,id=temp_id)
@@ -53,7 +59,7 @@ def updateView(request,temp_id):
     update_temp.content=request.POST['content']
     update_temp.bye=request.POST['bye']
     update_temp.save()
-    return redirect('template:main',cate)
+    return redirect('template:main',cate=cate,ord=1)
 
 def searchView(request):
     search=request.GET.get('search','')

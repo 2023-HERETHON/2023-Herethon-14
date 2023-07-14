@@ -132,7 +132,7 @@
 
   <body>
     <div id="container">
-        <a href="{% url 'template:main' temp.cate %}">
+        <a href="{% url 'template:main' cate=temp.cate ord=1 %}">
             <div id="img-box">
                 <img
                   src="{% static 'img/left.png' %}"
