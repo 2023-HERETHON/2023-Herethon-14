@@ -15,17 +15,11 @@ function addTemp() {
   id_basic = id_basic ?? 0;
 
   let memoTitle = document.getElementById("write-title").value;
-  //let memoGreet = document.getElementById("greeting").value;
-  //let memoBus = document.getElementById("business").value;
   let memoCont = document.getElementById("content-area").value;
-  //let memoEnd = document.getElementById("end").value;
 
   newMemo.id_basic = id_basic;
   newMemo.title = memoTitle;
-  //newMemo.greet = memoGreet;
-  //newMemo.bus = memoBus;
   newMemo.content = memoCont;
-  //newMemo.end = memoEnd;
 
   //여기도 memo이름 바꾸기
   memoBasic.push(newMemo);
@@ -39,7 +33,7 @@ function addTemp() {
     alert("템플릿 제목을 입력해주세요!");
   } else {
     //바꾸기
-    window.location.href = `/minwoo/pages/main/basic.html?memoBasic=${encodeURIComponent(
+    window.location.href = `/2023-Herethon-14/minwoo/pages/main/basic.html?memoBasic=${encodeURIComponent(
       JSON.stringify(newMemo)
     )}`;
   }
@@ -47,7 +41,7 @@ function addTemp() {
 let back = document.getElementById("arrow");
 
 function goMain() {
-  window.location.href = "/minwoo/pages/main/basic.html";
+  window.location.href = "/2023-Herethon-14/minwoo/pages/main/basic.html";
 }
 
 back.addEventListener("click", goMain);

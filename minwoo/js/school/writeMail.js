@@ -34,7 +34,7 @@ const backBtn = document.getElementById("arrow");
 
 //내가 바꿔야할 코드 부분 main.뭐시기.html
 function goMain() {
-  window.location.href = "/minwoo/pages/main/school.html";
+  window.location.href = "/2023-Herethon-14/minwoo/pages/main/school.html";
 }
 
 backBtn.addEventListener("click", goMain);
