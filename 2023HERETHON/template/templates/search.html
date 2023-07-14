@@ -27,18 +27,9 @@
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
     /* 고침 */
-    #service-name {
-      width: 280px;
-      height: 85px;
-      flex-shrink: 0;
-
-      margin-left: 140px;
-      margin-top: 20px;
-
-      background: #fff;
-
-      background: #fff;
-      filter: blur(3.5px);
+    #logo-img{
+      margin-left: 230px;
+      margin-top: -10px;
     }
     /* 고침 */
     #search {
@@ -69,20 +60,18 @@
 
     /* 고친부분 */
     #btn-box {
-      width: 500px;
+      width: 550px;
       height: 64px;
 
-      margin-top: 20px;
-      margin-left: 30px;
+      margin-top: 25px;
+      margin-left: 16px;
     }
     /* //고침 */
     #school-btn {
-      width: 100px;
+      width: 90px;
       height: 47px;
 
-      margin-left: 10px;
-      margin-right: 10px;
-      margin-top: 0px;
+      margin-left: 5px;
 
       border: none;
       border-radius: 23px;
@@ -99,13 +88,11 @@
     }
     /* 고친부분 */
     .else-btn {
-      width: 100px;
+      width: 90px;
       height: 47px;
       flex-shrink: 0;
 
-      margin-left: 10px;
-      margin-right: 10px;
-      margin-top: 0px;
+      margin-left: 5px;
 
       border: none;
       border-radius: 23px;
@@ -209,7 +196,7 @@
               <a  href="{% url 'account:logout' %}">로그아웃</a>
             </div>
           {% endif %}
-          <div id="service-name"></div>
+          <img id = "logo-img" src="{% static 'img/logo.png' %}" style = "width:100px;height:100px">
 
           
         </div>
@@ -234,7 +221,8 @@
           <button class="else-btn" onclick="location.href='/template/main/1/1'">학교</button>
           <button class="else-btn" onclick="location.href='/template/main/2/1'">동아리</button>
           <button class="else-btn" onclick="location.href='/template/main/3/1'">기본</button>
-          <button class="else-btn" onclick="location.href='/template/main/4/1'">MY</button>
+          <button class="else-btn" onclick="location.href='/template/main/4/1'">공유</button>
+          <button class="else-btn" onclick="location.href='/contact/main/'">연락망</button>
         </div>
       </div>
       <!-- 여기안에 템플릿들 box,title생성 -->

@@ -19,8 +19,8 @@ def contact_add_page(request):
 def contact_add(request):
     now_user=request.user
     print(now_user)
-    newcontact=Contact.object.all()
-    newcontact.professorname=request.POST['professor_name']
+    newcontact=Contact()
+    newcontact.professor_name=request.POST['professor_name']
     newcontact.subject=request.POST['subject']
     newcontact.email=request.POST['email']
     newcontact.con_user=now_user

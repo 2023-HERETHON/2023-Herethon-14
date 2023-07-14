@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>작성페이지</title>
+    {% load static %}
+  </head>
+
+  <style>
+    #container {
+      position: absolute;
+      width: 550px;
+      height: 1100px;
+      background: #e6e2dd;
+
+      margin-left: 40%;
+    }
+    #img-box {
+      margin-top: 25px;
+      margin-left: 20px;
+    }
+    #input-text {
+      width: 480px;
+      height: 48px;
+
+      border-radius: 10px;
+      background: #faf8f8;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      border: none;
+
+      margin-left: 35px;
+      margin-top: 30px;
+
+      color: #aea7a7;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    #blue-box {
+      width: 480px;
+      height: 300px;
+
+      border-radius: 10px;
+      background: #c6d5d5;
+      box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.25);
+
+      padding: 5px;
+      margin-top: 30px;
+      margin-left: 30px;
+    }
+
+    .placeholder-text {
+      color: #776b6b;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    #text-professor {
+      display: inline-block;
+
+      margin-left: 20px;
+      color: #000;
+      font-family: Inter;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    #text-subject {
+      display: inline-block;
+
+      margin-left: 100px;
+      color: #000;
+      font-family: Inter;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    #text-mail {
+      display: inline-block;
+
+      margin-left: 76px;
+      color: #000;
+      font-family: Inter;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    #professor {
+      position: relative;
+      width: 280px;
+      height: 45px;
+
+      padding-left: 5px;
+      margin-left: 10px;
+      margin-top: -100px;
+      border: none;
+      border-radius: 15px;
+      background: #fcf3f3;
+    }
+
+    #subject {
+      position: relative;
+      width: 280px;
+      height: 45px;
+
+      padding-left: 5px;
+      margin-left: 10px;
+      margin-top: -100px;
+      border: none;
+      border-radius: 15px;
+      background: #fcf3f3;
+    }
+    #e-mail {
+      position: relative;
+      width: 280px;
+      height: 45px;
+
+      padding-left: 5px;
+      margin-left: 10px;
+      margin-top: -100px;
+      border: none;
+      border-radius: 15px;
+      background: #fcf3f3;
+    }
+    #add-btn {
+      width: 155px;
+      height: 60px;
+
+      border-radius: 16px;
+      background: #7ab5be;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      border: none;
+
+      color: #fff;
+      font-family: Inter;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      margin-left: 200px;
+      margin-top: 50px;
+    }
+  </style>
+  <body>
+    <div id="container">
+        <a href="{% url 'contact:contact_list' %}">
+            <div id="img-box">
+                <img
+                  src="{% static 'img/left.png' %}"
+                  id="arrow"
+                  style="width: 45px; height: 45px"
+                />
+              </div>
+        </a>
+        <form action="{% url 'contact:add' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% comment %} <div id="input-box">
+                <input
+                type="text"
+                id="input-text"
+                placeholder="템플릿 제목을 입력해주세요."
+                />
+            </div> {% endcomment %}
+      <div id="blue-box">
+        <div id="box1">
+          <p id="text-professor">교수님 성함 :</p>
+
+          <input
+            class="placeholder-text"
+            id="professor"
+            type="text"
+            name='professor_name'
+            placeholder="교수님 성함을 입력해주세요."
+          />
+        </div>
+        <div id="box2">
+          <p id="text-subject">과목 :</p>
+          <input
+            class="placeholder-text"
+            id="subject"
+            type="text"
+            name="subject"
+            placeholder="과목을 입력해주세요."
+          />
+        </div>
+        <div id="box3">
+          <p id="text-mail">이메일 :</p>
+          <input
+            class="placeholder-text"
+            id="e-mail"
+            type="email"
+            name="email"
+            placeholder="이메일 주소를 입력해주세요."
+          />
+        </div>
+      </div>
+      <div id="btn-box">
+        <button id="add-btn"  type="submit">추가하기</button>
+      </div>
+    </div>
+  </body>
+</html>

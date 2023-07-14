@@ -1,22 +1,10 @@
-<body>
-    {%for contact in contacts%}
-    {{contact.professor_name}} - {{contact.subject}}
-    <br>
-    {{contact.email}}
-    <a href="{% url 'contact:delete' contact.id %}">삭제</a>
-    {%endfor%}
-    <a href="{% url 'contact:addPage' %}">추가</a>
-</body>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>메인페이지-연락망</title>
+    {% load static %}
   </head>
 
   <style>
@@ -79,6 +67,11 @@
       line-height: normal;
       text-decoration-line: underline;
     }
+    #logo-img{
+      margin-left: 230px;
+      margin-top: -50px;
+    }
+
     /* ~ 까지 */
     #top-box {
       position: absolute;
@@ -102,7 +95,6 @@
       margin-top: -40px;
 
       background: #fff;
-      filter: blur(3.5px);
     }
 
     #search {
@@ -194,7 +186,7 @@
       justify-content: space-between;
 
       padding: 10px;
-      margin-top: 300px;
+      margin-top: 330px;
       margin-left: 10px;
     }
 
@@ -242,30 +234,43 @@
     <div id="container">
       <div id="top-box">
         <!-- 07/14 수정 한 곳 -->
+        {% if user.is_authenticated %}
+
         <div id="personal">
-          <div id="personal-name">홍민우</div>
+          <div id="personal-name">{{user.first_name}}</div>
           <div id="nim-text">님</div>
-          <button id="logout-btn">로그아웃</button>
+          <button id="logout-btn" onclick="location.href='/account/logout/'">
+            로그아웃
+          </button>
         </div>
-        <!-- 07/14 수정까지 -->
-        <div id="service-name"></div>
+        {% endif %}
+        <img id = "logo-img" src="{% static 'img/logo.png' %}" style = "width:100px;height:100px">
+    
         <!-- 검색어 기능이 있는 박스 -->
         <div id="search-box">
-          <input id="search" type="title" placeholder="템플릿을 검색하세요" />
-          <div id="img-box">
-            <img
-              id="search-img "
-              src="/2023-Herethon-14/minwoo/img/gg_search.png"
-              style="width: 35px; height: 35px"
-            />
-          </div>
+            <form method="GET" action="{% url 'template:search' %}">
+              <input
+                id="search"
+                name="search"
+                type="title"
+                placeholder="템플릿을 검색하세요"
+              />
+            </form>
+  
+            <div id="img-box">
+              <img
+                id="search-img "
+                src="{% static 'img/gg_search.png' %}"
+                style="width: 35px; height: 35px"
+              />
+            </div>
         </div>
         <!-- 고침까지 -->
         <div id="btn-box">
           <button
             class="else-btn"
             id="school-btn"
-            onclick="goOtherPage('school-btn')"
+            onclick="location.href='/template/main/1/1'"
           >
             학교
           </button>
@@ -279,43 +284,50 @@
           <button
             class="else-btn"
             id="basic-btn"
-            onclick="goOtherPage('basic-btn')"
+            onclick="location.href='/template/main/2/1'"
           >
             기본
           </button>
-          <button class="else-btn" id="my-btn" onclick="goOtherPage('my-btn')">
-            MY
+          <button class="else-btn" id="my-btn" onclick="location.href='/template/main/3/1'">
+            공유
           </button>
-          <button id="contect-btn" onclick="goOtherPage('my-btn')">
+          <button id="contect-btn" onclick="location.href='/contact/main/'">
             연락망
           </button>
         </div>
       </div>
 
       <div id="temp-contain">
-        <div id="mail-box">
-          <!-- professor subject address만 입력 받는 것-->
-          <div class="professor-text" id="professor">박대기</div>
-          <div class="professor-text">교수님</div>
-          <div class="professor-text" id="subject">운영체제</div>
-          <div id="address">12345@likelion.org</div>
-        <div id = trash-box>
-          <img
-            id="trash-img"
-            src="/2023-Herethon-14/minwoo/img/Vector.png"
-            style="width: 35px; height: 38px"
-          />
-        </div>
+        {%for contact in contacts%}
+            <div id="mail-box">
+                <!-- professor subject address만 입력 받는 것-->
+                <div class="professor-text" id="professor">{{contact.professor_name}}</div>
+                <div class="professor-text">교수님 - </div>
+                <div class="professor-text" id="subject">{{contact.subject}}</div>
+                <div id="address">{{contact.email}}</div>
+                <div id = trash-box>
+                    <a href="{% url 'contact:delete' contact.id %}"><img
+                        id="trash-img"
+                        src="{% static 'img/trash.png' %}"
+                        style="width: 35px; height: 38px"
+                    /></a>
+                
+                </div>
+            </div>
+        {%endfor%}
       </div>
       <!-- 추가 버튼 --> 
-    </div>
       <div>
-        <img
-          id="add-img"
-          src="/2023-Herethon-14/minwoo/img/icons8_plus.png"
-          style="width: 55px; height: 55px"
-        />
+                    
+        <a href="{% url 'contact:addPage' %}"><img
+            id="add-img"
+            src="{% static 'img/icons8_plus.png' %}"
+            style="width: 55px; height: 55px"
+          /></a>
+        
       </div>
+    </div>
+      
    
   </body>
 </html>

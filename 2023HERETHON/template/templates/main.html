@@ -16,10 +16,65 @@
 
       margin-left: 40%;
     }
+    #personal {
+      padding: 20px;
+      height: 20px;
+    }
+
+    #personal-name {
+      display: inline-block;
+      width: 70px;
+      height: 30px;
+
+      color: #322929;
+      text-align: center;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      font-family: Inter;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #nim-text {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    #logout-btn {
+      width: 95px;
+      height: 37px;
+
+      margin-left: 300px;
+      border: none;
+      background-color: #00000000;
+
+      color: #fff;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-decoration-line: underline;
+    }
+    #logo-img{
+      margin-left: 230px;
+      margin-top: -50px;
+    }
+
     #top-box {
       position: absolute;
       width: 550px;
-      height: 300px;
+      height: 280px;
       border-radius: 0px 0px 40px 40px;
       background: #79b4bd;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -36,7 +91,6 @@
       margin-top: -40px;
 
       background: #fff;
-      filter: blur(3.5px);
     }
     /* 고침 */
     #search {
@@ -58,6 +112,25 @@
       font-weight: 400;
       line-height: normal;
     }
+    /* #contect-btn {
+      width: 90px;
+      height: 47px;
+
+      margin: 5px;
+
+      border: none;
+      border-radius: 23px;
+      background: rgba(178, 205, 209, 0.61);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      color: #fff;
+      text-align: center;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    } */
     /* 추가 */
     #img-box {
       position: relative;
@@ -67,20 +140,18 @@
 
     /* 고친부분 */
     #btn-box {
-      width: 500px;
+      width: 550px;
       height: 64px;
 
-      margin-top: 20px;
-      margin-left: 30px;
+      margin-top: 25px;
+      margin-left: 16px;
     }
     /* //고침 */
     #school-btn {
-      width: 100px;
+      width: 90px;
       height: 47px;
 
-      margin-left: 10px;
-      margin-right: 10px;
-      margin-top: 0px;
+      margin-left: 5px;
 
       border: none;
       border-radius: 23px;
@@ -97,13 +168,11 @@
     }
     /* 고친부분 */
     .else-btn {
-      width: 100px;
+      width: 90px;
       height: 47px;
       flex-shrink: 0;
 
-      margin-left: 10px;
-      margin-right: 10px;
-      margin-top: 0px;
+      margin-left: 5px;
 
       border: none;
       border-radius: 23px;
@@ -119,7 +188,7 @@
     }
 
     select#select-box {
-      margin-top: 360px;
+      margin-top: 330px;
       margin-left: 38px;
       width: 85px;
       height: 40px;
@@ -303,9 +372,9 @@
   <body>
     <div id="container">
       <div id="top-box">
-        <div>
+      
           {% if user.is_authenticated %}
-
+          
           <div id="personal">
             <div id="personal-name">{{user.first_name}}</div>
             <div id="nim-text">님</div>
@@ -314,8 +383,8 @@
             </button>
           </div>
           {% endif %}
-          <div id="service-name"></div>
-        </div>
+          <img id = "logo-img" src="{% static 'img/logo.png' %}" style = "width:100px;height:100px">
+      
 
         <!-- 검색어 기능이 있는 박스 -->
         <div id="search-box">
@@ -369,9 +438,12 @@
           </button>
           {% else %}
           <button class="else-btn" onclick="location.href='/template/main/4/1'">
-            MY
+            공유
           </button>
           {% endif %}
+          <button class="else-btn" id="contect-btn" onclick="location.href='/contact/main/'">
+            연락망
+          </button>
         </div>
       </div>
       <!-- 07/14 11:25 -->
