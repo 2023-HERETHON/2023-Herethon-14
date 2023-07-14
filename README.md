@@ -72,6 +72,8 @@ python newvenv/Scripts/activate
   <hr/>
 
 ### ERD
+
+
 <a href="https://www.erdcloud.com/d/HzeYqpy4aMjGPFyg4"><img width="652" alt="스크린샷 2023-07-13 오전 4 42 30" src="https://github.com/2023-HERETHON/2023-Herethon-14/assets/100216331/43c04524-ad33-4f3b-b888-a42ebd04b8a6"></a>
 
 ### 화면 구성
@@ -87,7 +89,8 @@ python newvenv/Scripts/activate
 
 
 ### API 주소
-<a href="https://seed-sponge-14c.notion.site/7143a78f02464309a2b206fa4ae0be65?v=82176055abaa4005945aa129275b93d9&pvs=4">API 명세서</a><br><img width="709" alt="스크린샷 2023-07-13 오전 4 48 23" src="https://github.com/2023-HERETHON/2023-Herethon-14/assets/100216331/7ffd6b38-9a25-4012-97a5-b6c3c219aa00">
+
+<a href="https://ibb.co/ZKFPmW1"><img src="https://i.ibb.co/4MXGdPg/api.png">API 명세서</a><br><img width="709" alt="스크린샷 2023-07-13 오전 4 48 23" src="https://github.com/2023-HERETHON/2023-Herethon-14/assets/100216331/7ffd6b38-9a25-4012-97a5-b6c3c219aa00">
 
 
 ### 배포 링크
